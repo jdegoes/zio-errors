@@ -144,3 +144,64 @@ object ZIOCause extends ZIOAppDefault {
       Console.printLine(combinedErrors2) *>
       Console.printLine(combinedErrors3)
 }
+
+object ZIOZooming {
+  val z1: IO[String, Option[Int]] = ZIO.succeed(Some(1))
+
+  /*
+   * EXERCISE
+   *
+   * Use `ZIO#some` to drill into the `Option` in the value channel.
+   */
+  lazy val z2: IO[Option[String], Int] = z1.TODO
+
+  /*
+   * EXERCISE
+   *
+   * Use `ZIO#unsome` to undo the previous transformation.
+   */
+  lazy val z3: IO[String, Option[Int]] = z2.TODO
+
+  val z4: IO[String, Either[Boolean, Int]] = ZIO.succeed(Right(1))
+
+  /*
+   * EXERCISE
+   *
+   * Use `ZIO#left` to drill into the `Left` in the value channel.
+   */
+  lazy val z5: IO[Either[String, Int], Boolean] = z4.TODO
+
+  /*
+   * EXERCISE
+   *
+   * Use `ZIO#unleft` to undo the previous transformation.
+   */
+  lazy val z6: IO[String, Either[Boolean, Int]] = z5.TODO
+
+  val z7: IO[String, Either[Boolean, Option[Int]]] = ZIO.succeed(Right(Some(1)))
+
+  /*
+   * EXERCISE
+   *
+   * Use the appropriate operators to zoom into the `Int` inside `z7`. Insert
+   * a type for the IO.
+   */
+  lazy val z8: TODO = z7.TODO
+
+  val z9: IO[String, Either[Boolean, Option[List[Int]]]] = ZIO.succeed(Right(Some(1 :: Nil)))
+
+  /*
+   * EXERCISE
+   *
+   * Use the appropriate operators to zoom into the `Int` inside `z9`. Insert
+   * a type for the IO.
+   */
+  lazy val z10: TODO = z9.TODO
+
+  /*
+   * EXERCISE
+   *
+   * Finally, undo the transformation you did to `z10`.
+   */
+  lazy val z11: IO[String, Either[Boolean, Option[List[Int]]]] = (z10: Any).TODO
+}
