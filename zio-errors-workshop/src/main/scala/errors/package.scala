@@ -1,4 +1,4 @@
-package webapp
+package errors
 
 package object workshop {
   implicit class AnyExtensionMethods(val any: Any) extends AnyVal {
@@ -6,6 +6,8 @@ package object workshop {
   }
 
   type TODO = Nothing
+
+  type TODO1[+A] = Nothing
 
   def TODO: Nothing = ???
 }

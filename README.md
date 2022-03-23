@@ -1,60 +1,38 @@
-# zio-webapp
+# Error Management with ZIO 2.0
 
-| CI | Release | Snapshot | Discord |
-| --- | --- | --- | --- |
-| ![CI][Badge-CI] | [![Release Artifacts][Badge-SonatypeReleases]][Link-SonatypeReleases] | [![Snapshot Artifacts][Badge-SonatypeSnapshots]][Link-SonatypeSnapshots] | [![Badge-Discord]][Link-Discord] |
+## From the UI
 
-# Summary
+1. Download the repository as a [zip archive](https://github.com/jdegoes/zio-errors/archive/master.zip).
+2. Unzip the archive, usually by double-clicking on the file.
+3. Configure the source code files in the IDE or text editor of your choice.
 
-A starter seed for ZIO 2.0 web applications, together with workshop material for the course, _Building Web Applications with ZIO 2.0_.
+## From the Command Line
 
-You can find the workshop in the `zio-webapp-workshop` directory, and the starter project in the `zio-webapp-core` directory.
+1. Open up a terminal window.
 
-# Testing
+2. Clone the repository.
 
-Start an `sbt` shell and switch to the `workshop` project using  
-```
-project workshop
-```
-Run all tests using
-```
-test
-```
-or all tests in a particular test spec using e.g.
-```
-testOnly webapp.workshop.SchemaSpec
-```
-or all test suites with a particular name using
-```
-testOnly webapp.workshop.SchemaSpec -- -t "record capabilities"
-```
+    ```bash
+    git clone https://github.com/jdegoes/zio-errors
+    ```
+5. Launch project provided `sbt`.
 
-# Documentation
+    ```bash
+    cd zio-errors; ./sbt
+    ```
+6. Enter continuous compilation mode.
 
-[zio-webapp Microsite](https://zio.github.io/zio-webapp/)
+    ```bash
+    sbt:zio-errors> ~ test:compile
+    ```
 
-# Contributing
+Hint: You might get the following error when starting sbt:
 
-[Documentation for contributors](https://zio.github.io/zio-webapp/docs/about/about_contributing)
+> [error] 	typesafe-ivy-releases: unable to get resource for com.geirsson#sbt-scalafmt;1.6.0-RC4: res=https://repo.typesafe.com/typesafe/ivy-releases/com.geirsson/sbt-scalafmt/1.6.0-RC4/jars/sbt-scalafmt.jar: javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested targe
 
-## Code of Conduct
+It's because you have an outdated Java version, missing some newer certificates. Install a newer Java version, e.g. using [Jabba](https://github.com/shyiko/jabba), a Java version manager. See [Stackoverflow](https://stackoverflow.com/a/58669704/1885392) for more details about the error.
 
-See the [Code of Conduct](https://zio.github.io/zio-webapp/docs/about/about_coc)
+# Legal
 
-## Support
-
-Come chat with us on [![Badge-Discord]][Link-Discord].
-
-# License
-
-[License](LICENSE)
-
-[Badge-SonatypeReleases]: https://img.shields.io/nexus/r/https/oss.sonatype.org/dev.zio/zio-webapp_2.13.8.svg "Sonatype Releases"
-[Badge-SonatypeSnapshots]: https://img.shields.io/nexus/s/https/oss.sonatype.org/dev.zio/zio-webapp_2.13.8.svg "Sonatype Snapshots"
-[Badge-Discord]: https://img.shields.io/discord/2ccFBr4?logo=discord "chat on discord"
-[Link-SonatypeReleases]: https://oss.sonatype.org/content/repositories/releases/dev/zio/zio-webapp_2.13.8/ "Sonatype Releases"
-[Link-SonatypeSnapshots]: https://oss.sonatype.org/content/repositories/snapshots/dev/zio/zio-webapp_2.13.8/ "Sonatype Snapshots"
-[Link-Discord]: https://discord.com/invite/2ccFBr4 "Discord"
-[Badge-CI]: https://github.com/zio/zio-webapp/workflows/CI/badge.svg
-
+Copyright&copy; 2022 John A. De Goes. All rights reserved.
 
